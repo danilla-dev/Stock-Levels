@@ -1,0 +1,32 @@
+[
+	{
+		"id": "08H40",
+		"stockLevel": 6,
+		"img": "https://firebasestorage.googleapis.com/v0/b/stocklevels-194b1.appspot.com/o/dzbanki%2F08H40.webp?alt=media&token=af428e94-408b-4567-8468-23a37019de8b"
+	},
+	{
+		"id": "14H60",
+		"stockLevel": 11,
+		"img": "https://firebasestorage.googleapis.com/v0/b/stocklevels-194b1.appspot.com/o/dzbanki%2F14H60.webp?alt=media&token=b31671a5-3228-406f-9485-512e2bf015a4"
+	},
+	{
+		"id": "30H60",
+		"stockLevel": 1,
+		"img": "https://firebasestorage.googleapis.com/v0/b/stocklevels-194b1.appspot.com/o/dzbanki%2F30H60.webp?alt=media&token=8369e937-4e9b-4a22-b5bf-2bcf2762d194"
+	},
+	{
+		"id": "31D30",
+		"stockLevel": 3,
+		"img": "https://firebasestorage.googleapis.com/v0/b/stocklevels-194b1.appspot.com/o/dzbanki%2F31D30.webp?alt=media&token=d316af05-7b0b-4992-92e5-5fc3beb81cc0"
+	},
+	{
+		"id": "35H40",
+		"stockLevel": 3,
+		"img": "https://firebasestorage.googleapis.com/v0/b/stocklevels-194b1.appspot.com/o/dzbanki%2F35H40.webp?alt=media&token=49343599-3502-4251-a9ef-a0c8ae834149"
+	},
+	{
+		"id": "72H100",
+		"stockLevel": 3,
+		"img": "https://firebasestorage.googleapis.com/v0/b/stocklevels-194b1.appspot.com/o/dzbanki%2F72H100.webp?alt=media&token=dbac80a9-5d9e-489e-bf49-f953fe6a3cd1"
+	}
+]
