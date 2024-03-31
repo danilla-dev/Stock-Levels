@@ -11,6 +11,7 @@ import { dbRef } from '../database/firebaseConfig'
 
 const MainStockPage = () => {
 	const [products, setProducts] = useState([])
+
 	get(child(dbRef, `products`)).then(snapshot => {
 		if (snapshot.exists()) {
 			const dataArray = Object.values(snapshot.val())
@@ -19,12 +20,12 @@ const MainStockPage = () => {
 			console.log('No data available')
 		}
 	})
+
 	return (
 		<>
-			{products !== undefined &&
-				products.map((product, index) => {
-					return <Product id={product.id} stockLevel={product.stockLevel} img={product.img} key={index} />
-				})}
+			{products.map((product, index) => {
+				return <Product id={product.id} stockLevel={product.stockLevel} img={product.img} key={index} />
+			})}
 		</>
 	)
 }

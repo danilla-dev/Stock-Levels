@@ -35,6 +35,7 @@ const ProductStockLevel = ({ quantity, isEditing, handleToggleEdit, handleSetNew
 	return (
 		<div className='product__stock-level'>
 			<p>Stock level:</p>
+			{/* Input just showed only when user click on quantity of product */}
 			{isEditing ? (
 				<div className='quantity-input'>
 					<input type='number' className='quantity-input__input' value={newQuantity} onChange={handleInputChange} />
@@ -61,6 +62,7 @@ const Product = ({ id, stockLevel, img }) => {
 	const [quantity, setQuantity] = useState(stockLevel || 0)
 	const [isEditing, setIsEditing] = useState(false)
 
+	// Quantity update depending on user selection. ONLY IN COMPONENT
 	const handleSetQuantity = action => {
 		const newQuantity = action === '+' ? quantity + 1 : quantity - 1
 		setQuantity(newQuantity)
@@ -70,7 +72,7 @@ const Product = ({ id, stockLevel, img }) => {
 	const handleToggleEdit = () => {
 		setIsEditing(prevState => !prevState)
 	}
-
+	// Quantity update in DB depending on user selection. Added +1 and -1 by component state update
 	const handleSaveInDB = (action, newValue) => {
 		set(ref(database, 'products/' + id), {
 			id,
@@ -79,15 +81,13 @@ const Product = ({ id, stockLevel, img }) => {
 		})
 	}
 
+	const productStockLevelColor = {
+		backgroundColor: (quantity === 0 && 'tomato') || (quantity <= 3 && 'yellow') || (quantity > 3 && 'yellowgreen'),
+	}
+
 	return (
 		<div className='product wrapper' id={id}>
-			<p
-				className='product__id'
-				style={{
-					backgroundColor:
-						(quantity === 0 && 'tomato') || (quantity <= 3 && 'yellow') || (quantity > 3 && 'yellowgreen'),
-				}}
-			>
+			<p className='product__id' style={productStockLevelColor}>
 				{id}
 			</p>
 			<ProductImage srcImage={img} id={id} />
