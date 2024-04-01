@@ -1,17 +1,22 @@
+import React, { useContext } from "react";
 //Components
-import Product from './components/Product'
-import MainStockPage from './Pages/MainStockPage'
-import NewProductPopup from './components/NewProductPopup'
+import MainStockPage from "./Pages/MainStockPage";
+import NewProductPopup from "./components/NewProductPopup";
+import NavBar from "./components/NavBar";
 // Styles
-import './assets/styles/App.scss'
+import "./assets/styles/App.scss";
+// Context
+import { NewProductFormPopupContext } from "./contexts/NewProductFormPopupContext";
 
 function App() {
-	return (
-		<div className='App'>
-			<MainStockPage />
-			<NewProductPopup />
-		</div>
-	)
+  const { isShowed } = useContext(NewProductFormPopupContext);
+  return (
+    <div className="App">
+      <NavBar />
+      <MainStockPage />
+      {isShowed && <NewProductPopup />}
+    </div>
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,26 @@
+@import "colors";
+.nav-bar {
+  &__container {
+    position: fixed;
+    padding: 0.5em;
+    top: 0;
+    left: 0;
+    height: 75px;
+    width: 100%;
+    background-color: $NavbarBackground;
+    color: $NavbarText;
+  }
+  &-context {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    &__site-title {
+      display: inline-block;
+      margin-left: 2em;
+      font-size: 2rem;
+      span {
+        font-size: 1rem;
+      }
+    }
+  }
+}

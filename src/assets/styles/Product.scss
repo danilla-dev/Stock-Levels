@@ -1,80 +1,97 @@
-@import 'mixins';
+@import "mixins";
+@import "colors";
 .product {
-	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	grid-template-rows: 1fr 2fr;
-	grid-column-gap: 0px;
-	grid-row-gap: 0px;
-	margin-bottom: 1em;
-	width: 40%;
-	min-width: 400px;
-	border: 1px solid black;
-	border-radius: 10px;
-	font-size: 2rem;
-	overflow: hidden;
-	&__image,
-	&__stock-level,
-	&__actions-buttons,
-	.quantity-input {
-		@include flex-center;
-	}
-	&__id {
-		grid-area: 1 / 1 / 2 / 5;
-		padding: 0.2em;
-		border-bottom: 1px solid rgb(175, 175, 175);
-		font-weight: bold;
-		text-align: center;
-		letter-spacing: 2px;
-	}
-	&__image {
-		grid-area: 2 / 1 / 2 / 2;
-		img {
-			height: 70px;
-			aspect-ratio: 1/1;
-		}
-	}
-	&__stock-level {
-		grid-area: 2 / 2 / 4 / 4;
-		p {
-			margin-right: 0.5em;
-		}
-		.quantity-input {
-			display: flex;
-			&__input {
-				padding: 0.2em;
-				width: 50px;
-				height: 50%;
-				border: transparent;
-				border-bottom: 1px solid black;
-				font-size: 1.6rem;
-			}
-			&__accept-button {
-				padding: 0.25em;
-				font-size: 3rem;
-				@include transparent-btn;
-				svg {
-					color: yellowgreen;
-				}
-			}
-		}
-	}
-	&__actions-buttons {
-		grid-area: 2 / 4 / 4 / 5;
-		text-align: center;
-		button {
-			padding: 0.25em;
-			@include transparent-btn;
-			font-size: 3rem;
-		}
-		.increase-button {
-			svg {
-				color: yellowgreen;
-			}
-		}
-		.reduce-button {
-			svg {
-				color: tomato;
-			}
-		}
-	}
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin-bottom: 1em;
+  width: 40%;
+  min-width: 400px;
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 10px;
+  background-color: $BodyColor;
+  font-size: 2rem;
+  overflow: hidden;
+
+  &__image,
+  &__stock-level,
+  &__actions-buttons,
+  .quantity-input {
+    @include flex-center;
+  }
+  &__id {
+    grid-area: 1 / 1 / 2 / 5;
+    padding: 0.2em;
+    border-bottom: 1px solid rgb(175, 175, 175);
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  &__image {
+    grid-area: 2 / 1 / 2 / 2;
+    img {
+      margin: 0.25em;
+      height: 70px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+    }
+  }
+  &__stock-level {
+    grid-area: 2 / 2 / 4 / 4;
+    letter-spacing: 2px;
+    color: white;
+
+    p {
+      margin-right: 0.5em;
+    }
+    span {
+      cursor: pointer;
+    }
+    .quantity-input {
+      display: flex;
+      &__input {
+        padding: 0.2em;
+        width: 50px;
+        height: 50%;
+        border: transparent;
+        border-bottom: 1px solid black;
+        font-size: 1.6rem;
+      }
+      &__accept-button {
+        padding: 0.25em;
+        font-size: 3rem;
+        @include transparent-btn;
+        @include flex-center;
+        svg {
+          color: $GreenPlusButton;
+        }
+      }
+    }
+  }
+  &__actions-buttons {
+    grid-area: 2 / 4 / 4 / 5;
+    text-align: center;
+    button {
+      @include transparent-btn;
+      @include flex-center;
+      padding: 0.25em;
+      font-size: 3rem;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    .increase-button {
+      svg {
+        color: $GreenPlusButton;
+      }
+    }
+    .reduce-button {
+      svg {
+        color: #d63f24;
+      }
+    }
+  }
 }

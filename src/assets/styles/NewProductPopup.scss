@@ -1,56 +1,72 @@
-@import 'mixins';
+@import "mixins";
+@import "colors";
+@keyframes slide-top {
+  0% {
+    transform: translate(-50%, 10%);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
 .new-product-popup {
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	margin-left: auto;
-	margin-right: auto;
-	padding: 1em;
-	width: 50%;
-	min-width: 400px;
-	border: 1px solid black;
-	border-radius: 20px;
-	background-color: rgb(209, 209, 209);
-	z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em;
+  width: 30%;
+  min-width: 400px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: $NavbarBackground;
+  z-index: 1000;
+  animation: slide-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 .new-product-form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	font-size: 1.4rem;
-	label {
-		margin-top: 1.8em;
-		margin-bottom: 0.5em;
-	}
-	input {
-		padding: 0.5em;
-		border-radius: 5px;
-		border: 0.5px solid black;
-	}
-	&__image-preview {
-		height: 150px;
-		margin-top: 2em;
-		aspect-ratio: 1/1;
-		img {
-			width: 100%;
-			height: 100%;
-		}
-	}
-	&__actions-buttons {
-		@include flex-center;
-		justify-content: space-evenly;
-		margin-top: 2em;
-		width: 30%;
-		button {
-			@include transparent-btn;
-			font-size: 4rem;
-		}
-		&-save {
-			color: yellowgreen;
-		}
-		&-cancel {
-			color: tomato;
-		}
-	}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.4rem;
+  label {
+    margin-top: 1.8em;
+    margin-bottom: 0.5em;
+  }
+  input {
+    padding: 0.5em;
+    border-radius: 5px;
+    border: transparent;
+    border-bottom: 2px solid black;
+    background-color: $AddNewProductFormInputColor;
+  }
+  &__image-preview {
+    height: 150px;
+    margin-top: 2em;
+    aspect-ratio: 1/1;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__actions-buttons {
+    @include flex-center;
+    justify-content: space-evenly;
+    margin-top: 2em;
+    width: 30%;
+    button {
+      @include transparent-btn;
+      font-size: 4rem;
+      transition: transform 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+    &-save {
+      color: $GreenPlusButton;
+    }
+    &-cancel {
+      color: $RedMinusButton;
+    }
+  }
 }
